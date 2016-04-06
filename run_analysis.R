@@ -84,12 +84,14 @@ run_analysis <- function() {
 }
 
 # Convenience function to perform the analysis and export the results to CSV
-export_results <- function(data_path="tidy_data.csv",
-                           stats_path="statistics.csv") {
+export_results <- function(data_path="tidy_data.txt",
+                           stats_path="statistics.txt") {
   analytical_result <- run_analysis()
   
-  write.csv(x = analytical_result$data,
-            file = data_path)
-  write.csv(x=analytical_result$stats,
-            file = stats_path)
+  write.table(x = analytical_result$data,
+              file = data_path,
+              row.name = F)
+  write.table(x=analytical_result$stats,
+              file = stats_path,
+              row.name = F)
 }
